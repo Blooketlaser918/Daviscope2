@@ -1,0 +1,688 @@
+/* ── Base ─────────────────────────────────────────────────────────── */
+:root {
+    font-family: 'Montserrat', sans-serif;
+    color: #253858;
+    line-height: 1.5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f6f8fb;
+    color: #253858;
+    scroll-behavior: smooth;
+}
+
+a {
+    color: #17406f;
+}
+
+/* ── Header ───────────────────────────────────────────────────────── */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1200;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #d7e1ed;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 2.3rem;
+    line-height: 1;
+}
+
+.header-left a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.brand-davi {
+    color: #c0392b;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.mode-search-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* ── Search ───────────────────────────────────────────────────────── */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: min(380px, 100%);
+}
+
+.search-bar {
+    width: min(320px, 100%);
+    padding: 9px 12px;
+    border: 1px solid #ccdbec;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #102a43;
+    font: inherit;
+}
+
+.search-bar:focus {
+    outline: 2px solid #8fb7f4;
+    outline-offset: 1px;
+    border-color: #7ca9ee;
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────── */
+.voice-search-btn,
+.zoom-btn,
+.btn-primary,
+.btn-secondary {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1d62b0;
+    color: #ffffff;
+    padding: 9px 12px;
+    font: inherit;
+    font-weight: 700;
+}
+
+.voice-search-btn:hover,
+.zoom-btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover {
+    background: #154e8f;
+}
+
+#seeMoreArticlesBtn,
+#seeMoreQuestionsBtn {
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+.dark-toggle-btn {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1d62b0;
+    color: #ffffff;
+    padding: 9px 12px;
+    font: inherit;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.dark-toggle-btn:hover {
+    background: #154e8f;
+}
+
+/* ── Zoom controls ────────────────────────────────────────────────── */
+.zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.zoom-level {
+    min-width: 52px;
+    text-align: center;
+    font-weight: 700;
+    color: #17324d;
+}
+
+/* ── Tab navigation ───────────────────────────────────────────────── */
+.tab-navigation {
+    position: sticky;
+    top: 78px;
+    z-index: 1100;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #dfe6f0;
+}
+
+.tab-btn {
+    border: none;
+    background: #f1f5fb;
+    color: #1e3f67;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: #dce8ff;
+}
+
+/* ── Tab content ──────────────────────────────────────────────────── */
+.tab-container {
+    padding-bottom: 24px;
+}
+
+.tab-content {
+    display: none;
+    padding: 16px;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeSlideIn 0.28s ease;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Section elements ─────────────────────────────────────────────── */
+.section-intro {
+    margin: 6px 0 14px;
+    color: #44556b;
+    line-height: 1.6;
+}
+
+.digest-status {
+    margin: 14px 0 18px;
+    padding: 12px 14px;
+    border-left: 4px solid #2457a6;
+    background: #f4f8ff;
+    border-radius: 10px;
+    color: #17324d;
+    line-height: 1.6;
+}
+
+.topic-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.topic-chip {
+    border: 1px solid #c6d4ea;
+    background: #ffffff;
+    color: #1d3f72;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.topic-chip:hover {
+    background: #eef6ff;
+    transform: translateY(-1px);
+}
+
+/* ── Cards ────────────────────────────────────────────────────────── */
+.info-group,
+.article-card,
+.politician-card,
+.poll-card,
+.resource-card,
+.section-group {
+    background: #ffffff;
+    border: 1px solid #d9e2f2;
+    border-radius: 12px;
+    padding: 14px;
+    margin: 10px 0;
+    box-shadow: 0 2px 12px rgba(17, 57, 95, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-group:hover,
+.article-card:hover,
+.politician-card:hover,
+.poll-card:hover,
+.resource-card:hover,
+.section-group:hover {
+    transform: translateY(-2px);
+}
+
+.article-image.article-icon,
+.politician-image,
+.poll-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+    font-size: 2rem;
+}
+
+.article-summary,
+.article-card p,
+.politician-card p,
+.poll-card p,
+.resource-card p,
+.section-group p {
+    line-height: 1.6;
+    color: #34495e;
+}
+
+.article-tag {
+    display: inline-block;
+    margin: 8px 0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eef6ff;
+    color: #1d4f91;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.poll-tag {
+    margin-top: 4px;
+}
+
+/* ── Source links ─────────────────────────────────────────────────── */
+.source-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.source-links a {
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #eef4fb;
+    color: #17406f;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ── Image card ───────────────────────────────────────────────────── */
+.image-card {
+    display: block;
+    margin: 10px 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #eef4fb;
+}
+
+.image-card img {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+}
+
+.placeholder {
+    padding: 18px;
+    text-align: center;
+    color: #36516d;
+    font-weight: 700;
+}
+
+/* ── Resource grid ────────────────────────────────────────────────── */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin: 18px 0;
+}
+
+.resource-card {
+    display: block;
+    text-decoration: none;
+}
+
+.resource-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #163b67;
+}
+
+/* ── Election dates ───────────────────────────────────────────────── */
+.election-dates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.election-date {
+    display: block;
+    padding: 12px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #d9e2f2;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    color: #102a43;
+    cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.election-date:hover {
+    background: #dce8ff;
+    border-color: #7ca9ee;
+    transform: translateY(-2px);
+}
+
+.election-date.highlight {
+    background: #eef6ff;
+    border-color: #9ebde8;
+}
+
+.election-date.highlight:hover {
+    background: #d4e8ff;
+    border-color: #5a92d8;
+}
+
+/* ── Search highlight ─────────────────────────────────────────────── */
+.search-highlighted {
+    background-color: #fff8db !important;
+    border: 2px solid #ffc107 !important;
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.22);
+}
+
+/* ── Search results dropdown ──────────────────────────────────────── */
+.search-results-container {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 48px;
+    background: #ffffff;
+    border: 1px solid #d9e2f2;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    z-index: 1300;
+    overflow: hidden;
+}
+
+.search-results-header {
+    padding: 10px 12px;
+    background: #f4f7fb;
+    border-bottom: 1px solid #e7edf7;
+    font-size: 13px;
+    font-weight: 700;
+    color: #243b53;
+}
+
+.search-result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px 12px;
+    border: 0;
+    border-bottom: 1px solid #eef2f7;
+    background: #ffffff;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    font-size: 14px;
+}
+
+.search-result:last-child {
+    border-bottom: 0;
+}
+
+.search-result:hover,
+.search-result.highlighted {
+    background: #eef6ff;
+}
+
+.search-result-title {
+    font-weight: 700;
+    color: #102a43;
+}
+
+.search-result-meta {
+    font-size: 12px;
+    color: #52667a;
+    text-transform: capitalize;
+}
+
+.search-empty {
+    padding: 12px;
+    font-size: 14px;
+    color: #52667a;
+    background: #ffffff;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 780px) {
+    .header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .header-right {
+        justify-content: stretch;
+    }
+
+    .search-container {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .mode-search-group {
+        width: 100%;
+        justify-content: stretch;
+    }
+
+    .dark-toggle-btn {
+        width: 100%;
+    }
+
+    .zoom-controls {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-results-container {
+        right: 0;
+    }
+
+    .tab-navigation {
+        top: 128px;
+    }
+}
+
+/* ── Dark mode ────────────────────────────────────────────────────── */
+body.dark {
+    background: #0f1923;
+    color: #d4e0ee;
+}
+
+body.dark a {
+    color: #7cb9f4;
+}
+
+body.dark .header,
+body.dark .tab-navigation {
+    background: #141e2b;
+    border-color: #243041;
+}
+
+body.dark .search-bar {
+    background: #1b2738;
+    border-color: #2e4160;
+    color: #d4e0ee;
+}
+
+body.dark .search-bar:focus {
+    outline-color: #4a7fbf;
+    border-color: #4a7fbf;
+}
+
+body.dark .tab-btn {
+    background: #1b2738;
+    color: #b8d0e8;
+}
+
+body.dark .tab-btn.active,
+body.dark .tab-btn:hover {
+    background: #1f3554;
+    color: #dceeff;
+}
+
+body.dark .zoom-level {
+    color: #b8d0e8;
+}
+
+body.dark .info-group,
+body.dark .article-card,
+body.dark .politician-card,
+body.dark .poll-card,
+body.dark .resource-card,
+body.dark .section-group {
+    background: #141e2b;
+    border-color: #243041;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark .digest-status {
+    background: #162030;
+    border-left-color: #4a7fbf;
+    color: #c8ddf2;
+}
+
+body.dark .section-intro {
+    color: #b0c8e0;
+}
+
+body.dark .article-summary,
+body.dark .article-card p,
+body.dark .politician-card p,
+body.dark .poll-card p,
+body.dark .resource-card p,
+body.dark .section-group p {
+    color: #b0c8e0;
+}
+
+body.dark .resource-card h3 {
+    color: #c8ddf2;
+}
+
+body.dark .placeholder {
+    color: #9dbad8;
+}
+
+body.dark .article-tag {
+    background: #1b2f47;
+    color: #8dc8f8;
+}
+
+body.dark .source-links a {
+    background: #1b2f47;
+    color: #8dc8f8;
+}
+
+body.dark .topic-chip {
+    background: #1b2738;
+    border-color: #2e4160;
+    color: #b8d0e8;
+}
+
+body.dark .topic-chip:hover {
+    background: #1f3554;
+    color: #dceeff;
+}
+
+body.dark .election-date {
+    background: #141e2b;
+    border-color: #243041;
+    color: #d4e0ee;
+}
+
+body.dark .election-date:hover {
+    background: #1f3554;
+    border-color: #4a7fbf;
+}
+
+body.dark .election-date.highlight {
+    background: #162030;
+    border-color: #4a7fbf;
+}
+
+body.dark .election-date.highlight:hover {
+    background: #1f3554;
+}
+
+body.dark .image-card {
+    background: #1b2738;
+}
+
+body.dark .search-results-container {
+    background: #141e2b;
+    border-color: #243041;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.dark .search-results-header {
+    background: #0f1923;
+    border-color: #243041;
+    color: #b8d0e8;
+}
+
+body.dark .search-result {
+    background: #141e2b;
+    border-color: #1f2f42;
+    color: #d4e0ee;
+}
+
+body.dark .search-result:hover,
+body.dark .search-result.highlighted {
+    background: #1f3554;
+}
+
+body.dark .search-result-title {
+    color: #dceeff;
+}
+
+body.dark .search-result-meta {
+    font-size: 12px;
+    color: #8fb4d4;
+}
+
+body.dark .search-empty {
+    background: #141e2b;
+    color: #8fb4d4;
+}
+
+body.dark .search-highlighted {
+    background-color: #3a2e00 !important;
+    border-color: #f0a500 !important;
+    box-shadow: 0 0 0 3px rgba(240, 165, 0, 0.22);
+}
